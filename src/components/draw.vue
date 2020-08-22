@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <div id="signaturepad" style="margin:auto"  @change="handleFileUpload">
+    <div id="signaturepad" style="margin:auto" @change="handleFileUpload">
       <VueSignaturePad width="100%" height="200px" ref="signaturePad" />
-    </div><br/><br/>
+    </div>
+    <br /><br />
     <div>
       <button @click="Submit">Submit</button>
       <button @click="Clear">Clear</button>
@@ -16,7 +17,7 @@ export default {
       Defines the data used by the component
     */
   name: "MySignaturePad",
-   data: function() {
+  data: function() {
     /*
       Defines the data used by the component
     */
@@ -41,7 +42,7 @@ export default {
         // Ajax call for form submission
         const formData = new FormData();
         formData.append("signaturepad", this.selectedFile);
-              axios
+        axios
           .post("/single-file", formData, {
             headers: {
               "Content-Type": "multipart/form-data"

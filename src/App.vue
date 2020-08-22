@@ -3,7 +3,8 @@
     <h1 class="h1">Create a Signature</h1>
     <h3 class="h2">Use one of the following ways to create your signature</h3>
     <div id="nav">
-      <router-link to="/type" ><b>Type</b></router-link>
+      <router-link to="/type" active-class="active"
+          exact >Type</router-link>
       <router-link to="/upload">Upload</router-link>
       <router-link to="/draw">Draw</router-link>
       <hr style="width:50%" size="1" color="#2CA7E2" />

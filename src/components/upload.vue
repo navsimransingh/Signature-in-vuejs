@@ -4,7 +4,7 @@
       <div v-if="!image">
         <input
           type="file"
-          @change="onFileChange"
+          @change="handleFileUpload"
           accept="image/x-png,image/gif,image/jpeg"
         />
       </div>
@@ -25,7 +25,7 @@ export default {
     };
   },
   methods: {
-    onFileChange(e) {
+    handleFileUpload(e) {
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length) {
         return;
