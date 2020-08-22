@@ -4,7 +4,7 @@
       <div v-if="!image">
         <input
           type="file"
-          @change="handleFileUpload"
+          @change="onFileChange"
           accept="image/x-png,image/gif,image/jpeg"
         />
       </div>
@@ -20,9 +20,6 @@
 <script>
 export default {
   data: function() {
-    /*
-      Defines the data used by the component
-    */
     return {
       image: ""
     };
@@ -33,7 +30,7 @@ export default {
       if (!files.length) {
         return;
       }
-      this.createImage(files[0]);
+       this.image = this.$refs.image.files[0];
     },
     createImage(file) {
       // eslint-disable-next-line no-unused-vars
@@ -53,12 +50,12 @@ export default {
       if (this.image === "") {
         this.$alert("Enter Valid Signature");
       } else {
-        this.$alert("your Signature is submitted");
+        this.$alert("Your Signature is submitted");
         this.image = "";
       }
       const formData = new FormData();
-      formData.append("file", this.selectedFile, this.selectedFile.name);
-      axios
+      formData.append("image", this.selectedFile, this.selectedFile.name);
+              axios
           .post("/single-file", formData, {
             headers: {
               "Content-Type": "multipart/form-data"
@@ -71,12 +68,6 @@ export default {
             console.log("FAILURE!!");
           });
 
-      },
-             /*
-        Handles a change on the file upload
-      */
-      handleFileUpload(){
-        this.file = this.$refs.file.files[0];
     }
   }
 };

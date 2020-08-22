@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="signaturepad" style="margin:auto"  @change="handleFileUpload">
-      <VueSignaturePad width="100%" height="300px" ref="signaturePad" />
-    </div>
+      <VueSignaturePad width="100%" height="200px" ref="signaturePad" />
+    </div><br/><br/>
     <div>
       <button @click="Submit">Submit</button>
       <button @click="Clear">Clear</button>
@@ -16,6 +16,14 @@ export default {
       Defines the data used by the component
     */
   name: "MySignaturePad",
+   data: function() {
+    /*
+      Defines the data used by the component
+    */
+    return {
+      signaturePad: ""
+    };
+  },
   methods: {
     clear() {
       this.$refs.signaturePad.clearSignature();
@@ -32,7 +40,7 @@ export default {
         this.$refs.signaturePad.clearSignature();
         // Ajax call for form submission
         const formData = new FormData();
-        formData.append("", this.selectedFile);
+        formData.append("signaturepad", this.selectedFile);
               axios
           .post("/single-file", formData, {
             headers: {
@@ -48,7 +56,7 @@ export default {
       }
     },
     handleFileUpload() {
-      this.text = this.$refs.text.files[0];
+      this.text = this.$refs.signaturePad.files[0];
     }
   }
 };
