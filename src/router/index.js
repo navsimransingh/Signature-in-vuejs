@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import signature from '../views/upload.vue'
-import type from '../views/type.vue'
-import draw from '../views/draw.vue'
+import signature from '../components/upload.vue'
+import type from '../components/type.vue'
+import draw from '../components/draw.vue'
 
 Vue.use(VueRouter)
 
