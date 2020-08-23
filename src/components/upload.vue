@@ -45,7 +45,7 @@ export default {
       this.$refs.fileInput.value = null
     },
     submit: function (e) {
-      if (this.previewImage === '' && (this.$refs.fileInput.value = null)) {
+      if (this.previewImage === '' ) {
         this.$alert('Enter Valid Signature')
       } else {
         this.$alert('Your Signature is submitted')
