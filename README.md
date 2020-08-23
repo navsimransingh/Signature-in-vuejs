@@ -37,6 +37,9 @@ This Project is in vue.js.It has different signature component.User can able to 
 It accepts only image file for instance:png,jpg,jpeg
 ```
 #### By Drawing the image on Signature-Pad
+```
+Draw inside the Dotted Line for signature
+```
 
 ### How to use Signature Component
 ```
