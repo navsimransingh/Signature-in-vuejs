@@ -17,7 +17,6 @@
   </div>
 </template>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
 <script>
 export default {
   data () {
@@ -46,7 +45,7 @@ export default {
       this.$refs.fileInput.value = null
     },
     submit: function (e) {
-      if (this.previewImage === '') {
+      if (this.previewImage === '' && (this.$refs.fileInput.value = null)) {
         this.$alert('Enter Valid Signature')
       } else {
         this.$alert('Your Signature is submitted')
@@ -61,6 +60,7 @@ export default {
               'Content-Type': 'multipart/form-data'
             }
           })
+           console.log("AJAX Call")
           .then(function () {
             console.log('SUCCESS!!')
           })
@@ -75,7 +75,7 @@ export default {
 
 <style scoped lang="scss">
 .imagePreviewWrapper {
-    width: 550px;
+    width: 600px;
     height: 100px;
     display: block;
     cursor: pointer;

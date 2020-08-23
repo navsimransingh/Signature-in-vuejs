@@ -48,6 +48,7 @@ export default {
               "Content-Type": "multipart/form-data"
             }
           })
+          console.log("AJAX Call")
           .then(function() {
             console.log("SUCCESS!!");
           })
