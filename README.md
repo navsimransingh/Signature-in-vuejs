@@ -39,15 +39,25 @@ When user Submit the document,the request send to server via Axios(AJAX) call.
 ```
 #### By Typing
 ```
-Type inside the input box and click on the submit button if you are satisfied with your signature,otherwise you can click on clear button to type your signature again.When you press submit button your signature is submit to server via axios(ajax) call. 
+Type inside the input box and click on the submit button 
+if you are satisfied with your signature,otherwise you can click on 
+clear button to type your signature again.
+When you press submit button your signature is submit to server via axios(ajax) call. 
 ```
 #### By Uploading the image of the sign document
 ```
-uploads the image of the signature for your device.It accepts only image file for instance:png,jpg,jpeg,click on the submit button if you are satisfied with your signature,otherwise you can click on clear button to type your signature again.When you press submit button your signature is submit to server via axios(ajax) call
+uploads the image of the signature for your device.
+It accepts only image file for instance:png,jpg,jpeg,
+click on the submit button if you are satisfied with your signature,
+otherwise you can click on clear button to type your signature again.
+When you press submit button your signature is submit to server via axios(ajax) call
 ```
 #### By Drawing the image on Signature-Pad
 ```
-Draw inside the Dotted Line for signature,click on the submit button if you are satisfied with your signature,otherwise you can click on clear button to type your signature again.When you press submit button your signature is submit to server via axios(ajax) call.
+Draw inside the Dotted Line for signature,click on the submit button 
+if you are satisfied with your signature,otherwise
+you can click on clear button to type your signature again.
+When you press submit button your signature is submit to server via axios(ajax) call.
 ```
 
 
