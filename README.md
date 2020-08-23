@@ -34,9 +34,11 @@ This Project is in vue.js.It has different signature component.User can able to 
 #### By Typing
 #### By Uploading the image of the sign document
 ```
-It accepts only image file for instance, png,jpg,jpeg
+It accepts only image file for instance:png,jpg,jpeg
 ```
 #### By Drawing the image on Signature-Pad
+
+### How to use Signature Component
 ```
 By default no tab is active.Users need to click on the tab in which they want to sign the document.
 When user Submit the document,the request send to server via Axios(AJAX) call.
