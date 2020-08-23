@@ -8,6 +8,7 @@ npm install -g @vue/cli
 ```
 npm add vue-signature-pad
 ```
+### Install axios for Ajax Call
 ```
 npm install axios
 ```
@@ -29,7 +30,7 @@ npm run build
 ```
 npm run lint
 ```
-### Install axios for Ajax Call
+
 ```
 npm install axios
 ```
