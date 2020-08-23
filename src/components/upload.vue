@@ -1,109 +1,100 @@
 <template>
-  <label class="file-select">
-    <div id="app">
-      <div v-if="!image">
-        <input
-          type="file"
-          @change="handleFileUpload"
-          accept="image/x-png,image/gif,image/jpeg"
-        />
-      </div>
-      <div v-else>
-        <img :src="image" />
-      </div>
-      <button @click="submit">Submit</button>
-      <button @click="removeImage">Clear</button>
+  <div>
+    <div
+      class="imagePreviewWrapper"
+      :style="{ 'background-image': `url(${previewImage})` }"
+      @click="selectImage">
     </div>
-  </label>
+
+    <input
+      ref="fileInput"
+      type="file"
+      @input="pickFile" accept="image/x-png,image/gif,image/jpeg">
+      <div>
+        <button @click="submit">Submit</button>
+      <button @click="removeImage">Clear</button>
+      </div>
+  </div>
 </template>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script>
 export default {
-  data: function() {
+  data () {
     return {
-      image: ""
-    };
+      previewImage: null
+    }
   },
   methods: {
-    handleFileUpload(e) {
-      var files = e.target.files || e.dataTransfer.files;
-      if (!files.length) {
-        return;
+    selectImage () {
+      this.$refs.fileInput.click()
+    },
+    pickFile () {
+      const input = this.$refs.fileInput
+      const file = input.files
+      if (file && file[0]) {
+        const reader = new FileReader()
+        reader.onload = e => {
+          this.previewImage = e.target.result
+        }
+        reader.readAsDataURL(file[0])
+        this.$emit('input', file[0])
       }
-       this.image = this.$refs.image.files[0];
     },
-    createImage(file) {
-      // eslint-disable-next-line no-unused-vars
-      var image = new Image();
-      var reader = new FileReader();
-      var vm = this;
-
-      reader.onload = e => {
-        vm.image = e.target.result;
-      };
-      reader.readAsDataURL(file);
+    removeImage: function (e) {
+      this.previewImage = ''
+      this.$refs.fileInput.value = null
     },
-    removeImage: function(e) {
-      this.image = "";
-    },
-    submit: function(e) {
-      if (this.image === "") {
-        this.$alert("Enter Valid Signature");
+    submit: function (e) {
+      if (this.previewImage === '') {
+        this.$alert('Enter Valid Signature')
       } else {
-        this.$alert("Your Signature is submitted");
-        this.image = "";
-      }
-      const formData = new FormData();
-      formData.append("image", this.selectedFile, this.selectedFile.name);
-              axios
-          .post("/single-file", formData, {
+        this.$alert('Your Signature is submitted')
+        this.previewImage = ''
+        this.$refs.fileInput.value = null
+        // Ajax call for form submission
+        const formData = new FormData()
+        formData.append('previewImage', this.selectedFile)
+        axios
+          .post('/single-file', formData, {
             headers: {
-              "Content-Type": "multipart/form-data"
+              'Content-Type': 'multipart/form-data'
             }
           })
-          .then(function() {
-            console.log("SUCCESS!!");
+          .then(function () {
+            console.log('SUCCESS!!')
           })
-          .catch(function() {
-            console.log("FAILURE!!");
-          });
-
+          .catch(function () {
+            console.log('FAILURE!!')
+          })
+      }
     }
   }
-};
+}
 </script>
-<style scoped>
-.file-select > input[type="file"] {
-  background-color: #2ca7e2;
-  border: none;
-  color: white;
-  border-radius: 12px;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+
+<style scoped lang="scss">
+.imagePreviewWrapper {
+    width: 550px;
+    height: 100px;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto 30px;
+    background-size: cover;
+    background-position: center center;
 }
-img {
-  margin-left: 30%;
-  width: 200px;
-  height: 100px;
-  margin: auto;
-  display: block;
-  border-color: red;
-}
-button {
-  margin-top: 10%;
+button{
+  margin-top: 10.6%;
   margin-right: 20px;
-  background-color: #2ca7e2;
+  background-color: #2CA7E2;
   border: none;
   color: white;
   border-radius: 12px;
   padding: 15px 32px;
-  text-align: center;
+  text-align:center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   outline: none;
-}
+  }
 </style>

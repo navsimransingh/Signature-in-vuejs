@@ -1,4 +1,5 @@
 <template>
+<div>
   <form>
     <input
       type="text"
@@ -6,9 +7,10 @@
       v-model="text"
       v-on:change="handleFileUpload()"
     /><br /><br />
-    <button @click="submit">Submit</button>
-    <button @click="resetForm">Clear</button>
   </form>
+   <button @click="submit">Submit</button>
+  <button @click="resetForm">Clear</button>
+  </div>
 </template>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
@@ -66,7 +68,7 @@ input {
   border-left-style: hidden;
   width: 50%;
   height: 100;
-  margin-top: 100px;
+  margin-top: 150px;
   text-align: center;
   font-family: "Italianno", cursive;
   font-size: 500%;
@@ -76,6 +78,7 @@ input {
 }
 
 button {
+  margin-top:1%;
   margin-right: 20px;
   background-color: #2ca7e2;
   border: none;

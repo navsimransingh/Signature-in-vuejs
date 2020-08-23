@@ -1,14 +1,10 @@
 <template>
-  <div id="app">
-    <div id="signaturepad" style="margin:auto" @change="handleFileUpload">
-      <VueSignaturePad width="100%" height="200px" ref="signaturePad" />
-    </div>
+  <section class ="signature-component">
+      <VueSignaturePad ref="signaturePad" />
     <br /><br />
-    <div>
       <button @click="Submit">Submit</button>
-      <button @click="Clear">Clear</button>
-    </div>
-  </div>
+      <button @click="clear">Clear</button>
+  </section>
 </template>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
@@ -64,6 +60,7 @@ export default {
 </script>
 <style scoped>
 button {
+  margin-top: 2%;
   margin-right: 20px;
   background-color: #2ca7e2;
   border: none;
@@ -75,5 +72,12 @@ button {
   display: inline-block;
   font-size: 16px;
   outline: none;
+}
+.signature-component
+{
+  display: inline-block;
+  width:600px;
+  height:234px;
+  border-style: dotted;
 }
 </style>
