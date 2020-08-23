@@ -30,12 +30,9 @@ npm run build
 ```
 npm run lint
 ```
-
-```
-npm install axios
-```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
 ## Project Details
 This Project is in vue.js.It has different signature component.User can able to sign the component in the three different ways.
 
