@@ -23,6 +23,10 @@ npm run lint
 ```
 npm add vue-signature-pad
 ```
+### Install axios for Ajax Call
+```
+npm install axios
+```
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Project Details
