@@ -2,9 +2,19 @@
 
 ## Project setup
 ```
-npm install
+npm install -g @vue/cli
 ```
-
+### Vue-signature-pad
+```
+npm add vue-signature-pad
+```
+```
+npm install axios
+```
+### Vue-alert-box
+```
+npm i vue-simple-alert
+```
 ### Compiles and hot-reloads for development
 ```
 npm run serve
@@ -18,10 +28,6 @@ npm run build
 ### Lints and fixes files
 ```
 npm run lint
-```
-### Vue-signature-pad
-```
-npm add vue-signature-pad
 ```
 ### Install axios for Ajax Call
 ```
