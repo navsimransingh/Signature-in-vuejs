@@ -45,10 +45,11 @@ export default {
       this.$refs.fileInput.value = null
     },
     submit: function (e) {
-      if (this.previewImage === '' ) {
+      e.preventDefault();
+      if (this.$data.previewImage === '' ) {
         this.$alert('Enter Valid Signature')
       } else {
-        this.$alert('Your Signature is submitted')
+        this.$alert('Your Signature is Submitted')
         this.previewImage = ''
         this.$refs.fileInput.value = null
         // Ajax call for form submission

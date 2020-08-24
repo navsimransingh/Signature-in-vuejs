@@ -33,7 +33,7 @@ export default {
       this.text = this.$refs.text.files[0];
     },
     submit: function(e1) {
-      e1.preventDefault();
+      e1.preventDefault()
       if (this.$data.text === "") {
         this.$alert("Enter Valid Signature");
       } else {
